@@ -1,3 +1,5 @@
+package LabAssiAsseProjectV02;
+
 import domain.Student;
 import org.junit.Assert;
 import org.junit.BeforeClass;
