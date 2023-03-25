@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><inbox><student idStudent="123"><nume>Student</nume><grupa>333</grupa><email>email@student.com</email></student></inbox>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><inbox><student idStudent="123"><nume>Student</nume><grupa>333</grupa><email>email@student.com</email></student><student idStudent="222"><nume>Student</nume><grupa>0</grupa><email>email@student.com</email></student><student idStudent="333"><nume>Student</nume><grupa>1</grupa><email>email@student.com</email></student></inbox>

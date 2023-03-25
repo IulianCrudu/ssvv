@@ -80,7 +80,29 @@ public class StudentTest {
 
     @Test(expected=ValidationException.class)
     public void tc_2_testInvalidGroupAddStudent() {
-        Student student = new Student("123", "Student", -22, "email2@student.com");
+        Student student = new Student("123", "Student", -1, "email2@student.com");
         service.addStudent(student);
+    }
+
+    @Test
+    public void bva_1_test_group_zero() {
+        Student student = new Student("222", "Student", 0, "email@student.com");
+        service.addStudent(student);
+
+        Student foundStudent = service.findStudent("222");
+        Assert.assertEquals(student.getID(), foundStudent.getID());
+        Assert.assertEquals(student.getEmail(), foundStudent.getEmail());
+        Assert.assertEquals(student.getNume(), foundStudent.getNume());
+    }
+
+    @Test
+    public void bva_2_test_group_one() {
+        Student student = new Student("333", "Student", 1, "email@student.com");
+        service.addStudent(student);
+
+        Student foundStudent = service.findStudent("333");
+        Assert.assertEquals(student.getID(), foundStudent.getID());
+        Assert.assertEquals(student.getEmail(), foundStudent.getEmail());
+        Assert.assertEquals(student.getNume(), foundStudent.getNume());
     }
 }
