@@ -32,8 +32,8 @@ public class StudentTest {
     }
 
     @Test
-    public void testValidAddStudent() {
-        Student student = new Student("123", "Studentul Bravo", 333, "email@student.com");
+    public void tc_1_testValidAddStudent() {
+        Student student = new Student("123", "Student", 333, "email@student.com");
         service.addStudent(student);
 
         Student foundStudent = service.findStudent("123");
@@ -43,20 +43,44 @@ public class StudentTest {
     }
 
     @Test(expected=ValidationException.class)
-    public void testInvalidIdAddStudent() {
-        Student student = new Student("", "Studentul rau", 333, "email2@student.com");
+    public void tc_3_testEmptyIdAddStudent() {
+        Student student = new Student("", "Student", 333, "email@student.com");
         service.addStudent(student);
     }
 
     @Test(expected=ValidationException.class)
-    public void testInvalidNameAddStudent() {
-        Student student = new Student("22", "", 333, "email2@student.com");
+    public void tc_4_testNullIdAddStudent() {
+        Student student = new Student(null, "Student", 333, "email@student.com");
         service.addStudent(student);
     }
 
     @Test(expected=ValidationException.class)
-    public void testInvalidGroupAddStudent() {
-        Student student = new Student("22", "Studentul rau", -22, "email2@student.com");
+    public void tc_5_testNullNameAddStudent() {
+        Student student = new Student("123", null, 333, "email2@student.com");
+        service.addStudent(student);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void tc_6_testEmptyNameAddStudent() {
+        Student student = new Student("123", "", 333, "email2@student.com");
+        service.addStudent(student);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void tc_7_testNullEmailAddStudent() {
+        Student student = new Student("123", "Student", 333, null);
+        service.addStudent(student);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void tc_8_testEmptyEmailAddStudent() {
+        Student student = new Student("123", "Student", 333, "");
+        service.addStudent(student);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void tc_2_testInvalidGroupAddStudent() {
+        Student student = new Student("123", "Student", -22, "email2@student.com");
         service.addStudent(student);
     }
 }
