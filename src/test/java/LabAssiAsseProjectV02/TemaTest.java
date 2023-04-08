@@ -41,8 +41,56 @@ public class TemaTest {
     }
 
     @Test(expected=ValidationException.class)
+    public void testIDNull() {
+        Tema tema = new Tema("1", "Descriere", 10, 9);
+        tema.setID(null);
+
+        service.addTema(tema);
+    }
+
+    @Test(expected=ValidationException.class)
     public void testDescriereEmpty() {
         Tema tema = new Tema("1", "", 10, 9);
+        tema.setID("2");
+
+        service.addTema(tema);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void testDeadlineLessThan1() {
+        Tema tema = new Tema("1", "Descriere", 0, 9);
+        tema.setID("2");
+
+        service.addTema(tema);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void testDeadlineHigherThan14() {
+        Tema tema = new Tema("1", "Descriere", 0, 9);
+        tema.setID("2");
+
+        service.addTema(tema);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void testPrimireLessThan1() {
+        Tema tema = new Tema("1", "Descriere", 10, 0);
+        tema.setID("2");
+
+        service.addTema(tema);
+    }
+
+    @Test(expected=ValidationException.class)
+    public void testPrimireHigherThan14() {
+        Tema tema = new Tema("1", "Descriere", 10, 16);
+        tema.setID("2");
+
+        service.addTema(tema);
+    }
+
+    @Test
+    public void testValidTema() {
+        Tema tema = new Tema("1", "Descriere", 10, 12);
         tema.setID("2");
 
         service.addTema(tema);
