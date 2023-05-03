@@ -25,7 +25,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class IncrementalIntegration {
+public class IncrementalIntegrationTest {
     public Service service;
 
     @Mock
