@@ -165,12 +165,13 @@ public class Service {
         Tema tema = temaFileRepository.findOne(nota.getIdTema());
         int predare = calculeazaSPredare(nota.getData());
         if(predare != tema.getDeadline()){
-            if (predare-tema.getDeadline() == 1){
-                nota.setNota(nota.getNota()-2.5);
-            }
-            else{
-                throw new ValidationException("Studentul nu mai poate preda aceasta tema!");
-            }
+            nota.setNota(Math.max(0, nota.getNota() - (2.5 * predare-tema.getDeadline())));
+//            if (predare-tema.getDeadline() == 1){
+//                nota.setNota(nota.getNota()-2.5);
+//            }
+//            else{
+//                throw new ValidationException("Studentul nu mai poate preda aceasta tema!");
+//            }
         }
         notaFileRepository.save(nota);
         String filename = "fisiere/" + student.getNume() + ".txt";

@@ -16,3 +16,15 @@ Nota: 8.5
 Predata in saptamana: 6
 Deadline: 6
 Feedback: Foarte bine
+
+Tema: 55
+Nota: 0.0
+Predata in saptamana: 9
+Deadline: 6
+Feedback: Foarte bine
+
+Tema: 12
+Nota: 0.0
+Predata in saptamana: 9
+Deadline: 6
+Feedback: Foarte bine
